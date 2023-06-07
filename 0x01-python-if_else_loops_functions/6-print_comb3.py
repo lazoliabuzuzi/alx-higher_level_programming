@@ -7,3 +7,4 @@ for first_num in range(10):
             print("{:02d}".format(first_num * 10 + second_num), end=", ")
         if first_num < 8:
             print("", end="")
+print("")
