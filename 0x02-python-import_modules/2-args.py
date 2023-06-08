@@ -11,7 +11,6 @@ if __name__ == "__main__":
         print("1 argument:")
         print(f"1: {argv[1]}")
     else:
-        print("{num_args} arguments:")
+        print(f"{num_args} arguments:")
         for a in range (num_args):
             print(f"{a + 1} {argv[a + 1]}")
-
