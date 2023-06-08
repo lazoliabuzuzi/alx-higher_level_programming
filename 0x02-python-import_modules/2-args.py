@@ -13,4 +13,4 @@ if __name__ == "__main__":
     else:
         print(f"{num_args} arguments:")
         for a in range (num_args):
-            print(f"{a + 1} {argv[a + 1]}")
+            print(f"{a + 1}: {argv[a + 1]}")
