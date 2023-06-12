@@ -10,7 +10,7 @@
 
 int is_palindrome(listint_t **head)
 {
-	listint_t *prev = NULL; 
+	listint_t *prev = NULL;
 	listint_t *snail = *head;
 	listint_t *hare = *head;
 	listint_t *next;
@@ -44,5 +44,6 @@ int is_palindrome(listint_t **head)
 	}
 
 	return (1);
-}
 
+	return (0);
+}
