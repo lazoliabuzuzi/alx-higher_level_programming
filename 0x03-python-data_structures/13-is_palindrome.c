@@ -2,45 +2,47 @@
 #include <stdlib.h>
 #include "lists.h"
 
-#define MAX_SIZE 100
-
 /**
  * is_palindrome - checks if a singly linked list is a palindrome
- * @head: pinter to pointer of first node in list
+ * @head: pointer to pointer of first node in list
  * Return: 0 if it is not a palindrome, 1 if it is a palindrome
  */
 
 int is_palindrome(listint_t **head)
 {
-	listint_t *current;
-	int count;
-	int val[MAX_SIZE];
-	int start, end;
+	listint_t *prev = NULL; 
+	listint_t *snail = *head;
+	listint_t *hare = *head;
+	listint_t *next;
 
 	if (head == NULL || (*head)->next == NULL)
 		return (1);
 
-	current = *head;
+	snail = *head;
+	hare = *head;
 
-	while (current != NULL)
+	while (hare != NULL && hare->next != NULL)
 	{
-		val[count] = current->n;
-		current = current->next;
-		count++;
+		hare = hare->next->next;
+		next = snail->next;
+		snail->next = prev;
+		prev = snail;
+		snail = next;
 	}
 
-	start = 0;
-	end = count - 1;
+	if (hare != NULL)
+		snail = snail->next;
 
-	while (start < end)
+	while (snail != NULL)
 	{
-		if (val[start] != val[end])
+		if (prev->n != snail->n)
 		{
 			return (0);
 		}
-		start++;
-		end--;
+		prev = prev->next;
+		snail = snail->next;
 	}
 
 	return (1);
 }
+
