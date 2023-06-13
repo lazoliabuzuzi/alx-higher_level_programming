@@ -10,20 +10,19 @@
 
 int is_palindrome(listint_t **head)
 {
-	listint_t *prev = NULL;
 	listint_t *snail = *head;
 	listint_t *hare = *head;
+	listint_t *prev = NULL;
 	listint_t *next;
+	listint_t *current;
 
-	if (head == NULL || (*head)->next == NULL)
-		return (1);
-
-	snail = *head;
-	hare = *head;
+	if (head == NULL || *head == NULL || (*head)->next == NULL)
+                return (1);
 
 	while (hare != NULL && hare->next != NULL)
 	{
 		hare = hare->next->next;
+
 		next = snail->next;
 		snail->next = prev;
 		prev = snail;
@@ -33,7 +32,7 @@ int is_palindrome(listint_t **head)
 	if (hare != NULL)
 		snail = snail->next;
 
-	while (snail != NULL)
+	while (prev != NULL && snail != NULL)
 	{
 		if (prev->n != snail->n)
 		{
@@ -43,7 +42,18 @@ int is_palindrome(listint_t **head)
 		snail = snail->next;
 	}
 
-	return (1);
+	current = prev;
+	prev = NULL;
 
-	return (0);
+	while (current != NULL)
+	{
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
+	}
+
+	*head = prev;
+
+	return (1);
 }
