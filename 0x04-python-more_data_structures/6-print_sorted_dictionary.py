@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 def print_sorted_dictionary(a_dictionary):
-    ordered_dict = sorted(a_dictionary.items())
+    sorted_keys = sorted(a_dictionary)
 
-    for key, value in ordered_dict:
+    for key in sorted_keys:
+        value = a_dictionary[key]
         print(key + ":", value)
