@@ -11,7 +11,7 @@ class Square:
 
         Args:
             size (int): Size of the new square. Default is 0.
-            position (tuple): Position of the square. Default is (0, 0).
+            position (int, int): Position of the square. Default is (0, 0).
         """
         self.size = size
         self.position = position
