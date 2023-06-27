@@ -36,7 +36,7 @@ class Square:
         """Get the position of the square."""
         return self.__position
 
-    @size.setter
+    @position.setter
     def position(self, value):
         """Set the position of the square."""
         if (not isinstance(value, tuple) or
