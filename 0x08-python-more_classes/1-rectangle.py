@@ -6,14 +6,14 @@ class Rectangle:
     """Represent a rectangle."""
 
     def __init__(self, width=0, height=0):
-        """Initialize a new rectangle.
+        """Initialize a rectangle.
 
         Args:
-            width (int): Width of the new rectangle. Default is 0.
-            height (int): Height of the new rectangle. Default is 0.
+            width (int): The width of the new rectangle.
+            height (int): The height of the new rectangle.
         """
-        self.__width = width
-        self.__height = height
+        self.width = width
+        self.height = height
 
     @property
     def width(self):
@@ -42,6 +42,3 @@ class Rectangle:
             raise ValueError("height must be >= 0")
         else:
             self.__height = value
-
-    def __str__(self):
-        return f"Rectangle(height={self.__height}, width={self.__width})"
