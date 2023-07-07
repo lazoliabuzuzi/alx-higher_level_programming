@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Unittests for the function def max_integer(list=[])
+Unittest for max_integer([..])
 """
 import unittest
 max_integer = __import__('6-max_integer').max_integer
@@ -48,6 +48,11 @@ class MaxIntegerTestCase(unittest.TestCase):
         """Test for the maximum number in the middle."""
         result = max_integer([1, 3, 5, 10, 7, 2])
         self.assertEqual(result, 10)
+
+    def test_only_negative_numbers(self):
+        """Test for only negative numbers."""
+        result = max_integer([-5, -3, -10, -7, -2])
+        self.assertEqual(result, -2)
 
 if __name__ == '__main__':
     unittest.main()
