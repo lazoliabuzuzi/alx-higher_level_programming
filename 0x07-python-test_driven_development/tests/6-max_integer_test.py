@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""
-Unittest for max_integer([..])
+"""Unittest for max_integer([..])
 """
 import unittest
 max_integer = __import__('6-max_integer').max_integer
@@ -40,7 +39,7 @@ class MaxIntegerTestCase(unittest.TestCase):
         self.assertEqual(result, 3)
 
     def test_empty_list_with_default_parameter(self):
-        """Test an empty list with defal parameter."""
+        """Test an empty list with default parameter."""
         result = max_integer()
         self.assertIsNone(result)
 
@@ -53,6 +52,11 @@ class MaxIntegerTestCase(unittest.TestCase):
         """Test for only negative numbers."""
         result = max_integer([-5, -3, -10, -7, -2])
         self.assertEqual(result, -2)
+
+    def test_for_one_element(self):
+        """Test for one element."""
+        result = max_integer([5])
+        self.assertEqual(result, 5)
 
 if __name__ == '__main__':
     unittest.main()
