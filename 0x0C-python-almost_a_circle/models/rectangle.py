@@ -86,8 +86,10 @@ class Rectangle(Base):
 
     def display(self):
         """Display the rectangle using '#'."""
-        for _ in range(self.__height):
-            print('#' * self.__width)
+        for _ in range(self.y):
+            print()
+        for _ in range(self.height):
+            print(' ' * self.x + '#' * self.width)
 
     def __str__(self):
         """Override the str method to change the string representation."""
