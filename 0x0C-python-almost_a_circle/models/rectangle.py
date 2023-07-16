@@ -22,11 +22,11 @@ class Rectangle(Base):
             TypeError: if x or y are not integers.
             ValueError: if x or y is <= 0.
         """
-        super().__init__(id)
         self.width = width
         self.height = height
         self.x = x
         self.y = y
+        super().__init__(id)
 
     @property
     def width(self):
@@ -75,7 +75,7 @@ class Rectangle(Base):
     @y.setter
     def y(self, value):
         if not isinstance(value, int):
-            raise TypeeError("y must be an integer")
+            raise TypeError("y must be an integer")
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
@@ -88,3 +88,9 @@ class Rectangle(Base):
         """Display the rectangle using '#'."""
         for _ in range(self.__height):
             print('#' * self.__width)
+
+    def __str__(self):
+        """Override the str method to change the string representation."""
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
+                                                       self.x, self.y,
+                                                       self.width, self.height)
