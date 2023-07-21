@@ -4,6 +4,8 @@ from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
+    """Represent a square."""
+
     def __init__(self, size, x=0, y=0, id=None):
         """Initialize a square.
 
@@ -21,6 +23,5 @@ class Square(Rectangle):
 
         def __str__(self):
             """Override the str method to change the string representation."""
-            return "[Square] ({}) {}/{} - {}".format(self.id,
-                                                     self.x, self.y,
+            return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
                                                      self.width, self.height)
