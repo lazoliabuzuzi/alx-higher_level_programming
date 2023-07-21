@@ -109,3 +109,26 @@ class Rectangle(Base):
             self.x = args[3]
         if len(args) >= 5:
             self.y = args[4]
+
+    def update(self, *args, **kwargs):
+        """Update the attributes of the rectangle.
+
+        Args:
+            *args: Positional arguments, which will be ignored if **kwargs
+            is provided.
+            **kwargs: Keyword arguments, where each key represents an
+            attribute name,and the corresponding value is the new value for
+            that attribute.
+
+        Raises:
+            TypeError: if any of the attribute values aren't integers.
+            ValueError: if any of the attribute values are invalid (e.g.
+            <= 0 for width/height, < 0 for x/y.)
+        """
+        if args:
+            attributes = ["id", "width", "height", "x", "y"]
+            for i, arg in enumerate(args):
+                setattr(self, attributes[i], arg)
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
